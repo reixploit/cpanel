@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Management - Pterodactyl</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="sticky-bg">
+        <nav>
+            <div class="nav-links">
+                <i class="fa fa-bars" onclick="toggleMenu()"></i>
+                <a href="#hero-section" class="hero-link">Pterodactyl Panel</a>
+                <div id="nav-links-sub">
+                    <ul>
+                        <li><a href="#server-list">Server Saya</a></li>
+                        <li><a href="#create-server">Buat Server</a></li>
+                        <li><a href="#settings">Pengaturan</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="hero-section">
+        <div class="hero-title">
+            <div class="hero-sub-container-one">
+                <span id="title-one">PTERODACTYL</span>
+            </div>
+            <div class="hero-sub-container-two">
+                <span id="title-two">PANEL</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="server-list" class="section">
+        <h2>Server Saya</h2>
+        <div class="server-grid" id="server-grid">
+            <!-- Server list akan dimuat di sini -->
+        </div>
+    </section>
+
+    <section id="create-server" class="section">
+        <h2>Buat Server Baru</h2>
+        <form id="server-create-form">
+            <div class="form-group">
+                <label for="server-name">Nama Server</label>
+                <input type="text" id="server-name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="server-description">Deskripsi</label>
+                <textarea id="server-description" name="description" rows="3"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="server-cpu">Limit CPU (%)</label>
+                <input type="number" id="server-cpu" name="limits[cpu]" value="100">
+            </div>
+            
+            <div class="form-group">
+                <label for="server-memory">Memori (MB)</label>
+                <input type="number" id="server-memory" name="limits[memory]" value="1024">
+            </div>
+            
+            <div class="form-group">
+                <label for="server-disk">Disk (MB)</label>
+                <input type="number" id="server-disk" name="limits[disk]" value="1024">
+            </div>
+            
+            <div class="form-group">
+                <label for="server-egg">Egg ID</label>
+                <input type="number" id="server-egg" name="egg" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="server-image">Docker Image</label>
+                <input type="text" id="server-image" name="image" value="ghcr.io/pterodactyl/games:source">
+            </div>
+            
+            <div class="form-group">
+                <label for="server-startup">Startup Command</label>
+                <input type="text" id="server-startup" name="startup" placeholder="./srcds_run">
+            </div>
+            
+            <button type="submit" class="btn-primary">Buat Server</button>
+        </form>
+    </section>
+
+    <section id="settings" class="section">
+        <h2>Pengaturan API</h2>
+        <form id="api-settings-form">
+            <div class="form-group">
+                <label for="panel-url">Panel URL (contoh: https://panel.domainanda.com)</label>
+                <input type="url" id="panel-url" name="panelUrl" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="client-api-key">Client API Key (PLTC)</label>
+                <input type="password" id="client-api-key" name="clientApiKey" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="application-api-key">Application API Key (PLTA)</label>
+                <input type="password" id="application-api-key" name="applicationApiKey" required>
+            </div>
+            
+            <button type="submit" class="btn-primary">Simpan Pengaturan</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Pterodactyl Panel Management</p>
+    </footer>
+
+    <script src="setting.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
